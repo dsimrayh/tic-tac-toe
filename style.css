@@ -1,5 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Raleway:wght@300&display=swap");
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameboard {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-gap: 2px;
+    border: 2px solid black;
+    border-radius: 2px;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 36px;
+}
+
+.box.win {
+    background-color: rgb(47, 167, 47);
+}
+
+.btn {
+    height: 25px;
+    padding: 0 20px;
+    background-color: #fff;
+    border: none;
+    border: 1px solid #000;
+    border-radius: 5%;;
+}
+
+.btn:active {
+    transform: scale(1.15);
+}
+
+.player {
+    padding: 10px 18px;
+}
+
+.player.active {
+    background: linear-gradient(0deg, rgb(36, 247, 36), rgb(125, 253, 125) 5%, #fff 15%);
+}
+
+.player-div {
+    font-size: 36px;
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-result {
+    font-size: 30px;
+    color: #fff;
+}
+
+.game-result.game-over {
+    color:rgb(47, 167, 47);
 }

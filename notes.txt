@@ -1,0 +1,26 @@
+Player object contains name, score, marker, and currentTurn.
+
+Gameboard object contains all elements on page
+    - gb array should be rendered to the page
+    - contains 'render' function that is called
+      after each move (fill board)
+    - should be able to update board only through
+      player clicks or restart
+
+Controller allows for game logic and flow
+    - start sets currentTurn true for X and false for O
+    - once a click is made, currentTurn is set to !currentTurn
+    - click calls gameboard.placeMarker(), render(), and checkForWin()
+    - If win, winner is displayed above gameboard
+    - restart sets both scores to 0 and gives option to change names
+    - gameInProgress property
+
+
+// Where to store the gameboard render function?
+         - gameBoard *probably render and add event listeners here*
+         - gameController
+         - displayController
+
+
+Work through logic for displaying current players and handling start / restart
+Set up winning combos array and start working on checkForWin
