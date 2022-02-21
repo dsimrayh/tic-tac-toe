@@ -79,3 +79,9 @@ body {
 .game-result.game-over {
     color:rgb(47, 167, 47);
 }
+
+@media (max-width: 768px) {
+    body {
+        transform: scale(1);
+    }
+}
