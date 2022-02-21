@@ -160,7 +160,7 @@ const gameController = (() => {
         return winConfirmed
     }
 
-    // Set both player to inactive
+    // Set both players to inactive
     const _resetPlayers = () => {
         if(playerX.getIsActive() === true) playerX.setIsActive();
         if(playerO.getIsActive() === true) playerO.setIsActive();
