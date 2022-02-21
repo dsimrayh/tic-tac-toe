@@ -33,7 +33,7 @@ const gameBoard = (() => {
         })
     }
 
-    const render = (() => {
+    const _render = (() => {
         for(let i = 0; i <= 8; i++) {
             const div = document.createElement("div");
             div.classList.add('box');
@@ -52,9 +52,10 @@ const gameBoard = (() => {
         })
     })
 
-    return {getBoard, setBoardElement, resetBoard, updateBoard, render}
+    return {getBoard, setBoardElement, resetBoard, updateBoard}
 })();
 
+// Primary module for handling game logic
 const gameController = (() => {
     const _startButton = document.querySelector("#start-btn");
     const _restartButton = document.querySelector("#restart-btn");
@@ -70,6 +71,7 @@ const gameController = (() => {
         [2, 4, 6],
     ];
 
+    // Starting point
     const playerX = Player("X");
     const playerO = Player("O");
     let _movesLeft;
@@ -89,7 +91,7 @@ const gameController = (() => {
         })
 
         const gameResult = document.querySelector(".game-result");
-        gameResult.innerText = "PLACERHOLDER";
+        gameResult.innerText = "PLACEHOLDER";
         gameResult.classList.remove("game-over");
 
         _resetPlayers();
@@ -124,6 +126,7 @@ const gameController = (() => {
         const activePlayerSymbol = activePlayer.getSymbol();
         let winConfirmed = false;
 
+        // Check current board values against win combos
         _WIN_COMBOS.forEach(combo => {
             if(
                 board[combo[0]] === activePlayerSymbol &&
@@ -157,6 +160,7 @@ const gameController = (() => {
         return winConfirmed
     }
 
+    // Set both player to inactive
     const _resetPlayers = () => {
         if(playerX.getIsActive() === true) playerX.setIsActive();
         if(playerO.getIsActive() === true) playerO.setIsActive();
@@ -166,16 +170,16 @@ const gameController = (() => {
 })();
 
 const displayController = (() => {
-    const gameResult = document.querySelector(".game-result");
+    const _gameResult = document.querySelector(".game-result");
 
     const displayWin = (winner) => {
-        gameResult.innerText = `Player ${winner} wins!`;
-        gameResult.classList.add("game-over");
+        _gameResult.innerText = `Player ${winner} wins!`;
+        _gameResult.classList.add("game-over");
     }
 
     const displayTie = () => {
-        gameResult.innerText = "It's a tie!";
-        gameResult.classList.add("game-over");
+        _gameResult.innerText = "It's a tie!";
+        _gameResult.classList.add("game-over");
     }
 
     return {displayWin, displayTie}
